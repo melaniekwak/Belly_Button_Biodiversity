@@ -11,26 +11,40 @@
 
 <body>
 
-  <div class="container">
+  <!-- <div class="jumbotron" style="background: url(bacteria.png) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+  
+  </div> -->
+  
+  <!-- <div class="container"> -->
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+      <div class="jumbotron" style="background: url(bacteria.png) no-repeat center center fixed; background-size: 100%;">
+        <!-- <div class="col-md-12 jumbotron text-center"> -->
+          <h1 style="font-family:georgia">.  Belly Button Biodiversity Dashboard</h1>
+          <p style = "font-family:lucida handwriting; font-size:20px">.  Use the interactive charts below to explore the dataset</p>
+        <!-- </div> -->
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>SELECT Sample:</h5>
+      <div class="col-md-5" style="background-color: teal">
+        <!-- <div class="well"> -->
+          <h5 style="background-color: #ff7700; border-width: 2px; text-align:center">Test Subject ID No:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
+        <!-- </div> -->
         <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Sample MetaData</h3>
-          </div>
+          <!-- <div class="panel-heading"> -->
+            <h3 class="panel-title" style="background-color: #ff7700; border-width: 2px; text-align:center">Demographic Info</h3>
+          <!-- </div> -->
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
+
+    <p style="text-align:center; font-size:large"> 
+      Welcome to the results of our Improbable Beef bacterial data!
+      Please select your Test Subject ID No on the left and confirm Demographic Information.
+      Here we have the results shown in three charts below. Thank you for participating in this 
+      innovative and strange data collection.
+    </p>  
+    
       <div class="col-md-5">
         <div id="bar"></div>
       </div>
@@ -38,7 +52,7 @@
         <div id="gauge"></div>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <div class="row">
     <div class="col-md-12">
       <div id="bubble"></div>
