@@ -64,8 +64,14 @@ function buildCharts(sample) {
     // 4. Create a variable that filters the samples for the object with the desired sample number.
     var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
 
+    // 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    // var level = parseFloat(wfreq) * 20;
+
     //  5. Create a variable that holds the first sample in the array.
     var result = resultArray[0];
+
+    // 2. Create a variable that holds the first sample in the metadata array.
+
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids;
@@ -97,65 +103,100 @@ function buildCharts(sample) {
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
 
-  });
-}
+
 
 // 1. Create the trace for the bubble chart.
-var bubbleData = [
-  {
-    x: otu_ids,
-    y: sample_values,
-    text: otu_labels,
-    mode: "markers",
-    marker: {
-      size: sample_values,
-      color: otu_ids,
-      colorscale: "Earth"
-    }
-  }
-];
+    var bubbleData = [
+      {
+        x: otu_ids,
+        y: sample_values,
+        text: otu_labels,
+        mode: "markers",
+        marker: {
+          size: sample_values,
+          color: otu_ids,
+          colorscale: "Earth"
+        }
+      }
+    ];
 
 // 2. Create the layout for the bubble chart.
-var bubbleLayout = {
-  title: "Bacteria Cultures Per Sample",
-      margin: { t: 0 },
-      hovermode: "closest",
-      xaxis: { title: "OTU ID" },
-      margin: { t: 30}
-};
-
-// 3. Use Plotly to plot the data with the layout.
-Plotly.newPlot("bubble", bubbleData, bubbleLayout);
-});
-}
-
-    // 1. Create a variable that filters the metadata array for the object with the desired sample number.
-
-    // Create a variable that holds the first sample in the array.
-  
-
-    // 2. Create a variable that holds the first sample in the metadata array.
-    
-
-    // Create variables that hold the otu_ids, otu_labels, and sample_values.
-
-
-    // 3. Create a variable that holds the washing frequency.
-
-        // D2: 3. Use Plotly to plot the data with the layout.
-   
-    
-    // 4. Create the trace for the gauge chart.
-    var gaugeData = [
-     
-    ];
-    
-    // 5. Create the layout for the gauge chart.
-    var gaugeLayout = { 
-     
+    var bubbleLayout = {
+      title: "Bacteria Cultures Per Sample",
+          margin: { t: 0 },
+          hovermode: "closest",
+          xaxis: { title: "OTU ID" },
+          margin: { t: 30}
     };
 
-    // 6. Use Plotly to plot the gauge data and layout.
+// 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+  
+
+  
+    // Enter the washing frequency between 0 and 180
+    var level = parseFloat(sample) * 20;
+  
+    // Trig to calc meter point
+    var degrees = 180 - level;
+    var radius = 0.5;
+    var radians = (degrees * Math.PI) / 180;
+    var x = radius * Math.cos(radians);
+    var y = radius * Math.sin(radians);
+  
+    // Path: may have to change to create a better triangle
+    var mainPath = "M -.0 -0.05 L .0 0.05 L ";
+    var pathX = String(x);
+    var space = " ";
+    var pathY = String(y);
+    var pathEnd = " Z";
+    var path = mainPath.concat(pathX, space, pathY, pathEnd);
+
+    var guageData = [
+      {
+        domain: { x: [0], y: [0] },
+        value: 2,
+        type: "indicator",
+        mode: "gauge+number+delta",
+        gauge: {
+          axis: { range: [null, 10] },
+          steps: [
+            { range: [0, 2], color: "red" },
+            { range: [2, 4], color: "orange" },
+            { range: [4, 6], color: "yellow" },
+            { range: [6, 8], color: "90EE90" },
+            { range: [8, 10], color: "green" }
+
+
+          ]
+
+        }
+      }
+    ];
     
+    var guageLayout = {
+      title: "Belly Button Washing Frequency <br> Scrubs per Week",
+      height: 500,
+      width: 500,
+      xaxis: {
+          zeroline:false,
+          showticklabels: false,
+          showgrid: false,
+          range: [-1, 1]
+      },
+      yaxis: {
+          zeroline: false,
+          showticklabels: false,
+          showgrid: false,
+          range: [-1, 1]
+      }
+  }
+    var guage = document.getElementById("gauge");
+    Plotly.newPlot(guage, guageData, guageLayout);
   });
 }
+
+
+
+
+
