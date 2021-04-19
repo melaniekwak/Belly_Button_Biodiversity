@@ -10,18 +10,17 @@ Roza has a partially completed dashboard that she needs to finish. She has a com
 
     Deliverable 2: Create a Bubble Chart
 
-<<<<<<< HEAD
     ![bubble](/bubble.png)
-=======
-    ![bubble](bubble.jpg)
->>>>>>> ce83f255fff89b202d759f0886fc2b002eddab7b
+
+
 
 
     Deliverable 3: Create a Gauge Chart
 
-    ![guage](/guage.png)
+    ![guage](/Users/melaniekwak/Desktop/Belly_Button_Biodiversity/guage.png
+)
 
-
+/Users/melaniekwak/Desktop/Belly_Button_Biodiversity/guage.png
     Deliverable 4: Customize the Dashboard
 
     ![dash](/dashboard.png)
