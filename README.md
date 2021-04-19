@@ -5,23 +5,24 @@ Roza has a partially completed dashboard that she needs to finish. She has a com
 
     Deliverable 1: Create a Horizontal Bar Chart
 
-    ![bar](/bar.png)
+
+    [![bar](bar.png)]
 
 
     Deliverable 2: Create a Bubble Chart
 
-    ![bubble](/bubble.png)
 
-
+    ![bubble](bubble.png)
 
 
     Deliverable 3: Create a Gauge Chart
 
-    ![guage](/Users/melaniekwak/Desktop/Belly_Button_Biodiversity/guage.png
-)
 
-/Users/melaniekwak/Desktop/Belly_Button_Biodiversity/guage.png
+    ![guage](guage.png)
+
+
     Deliverable 4: Customize the Dashboard
-
-    ![dash](/dashboard.png)
+    
+    
+    ![dash](dashboard.png)
 
